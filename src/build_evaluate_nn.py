@@ -4,8 +4,8 @@ from keras.layers import Embedding
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 import h5py
 
-def build_nn(emb_matrix, max_len, list_of_layers):
-  '''Build neural network from a given list of layers.'''
+def build_nn_with_embeddings(emb_matrix, max_len, loss, metrics, list_of_layers, optimizer="adam"):
+  '''Build neural network with a non trainable layer of embeddings and a given list of layers.'''
   model = Sequential()
   model.add(Embedding(emb_matrix.shape[0],
                       emb_matrix.shape[1], 
@@ -16,9 +16,9 @@ def build_nn(emb_matrix, max_len, list_of_layers):
     model.add(layer)
   model.summary() 
   
-  model.compile(loss="binary_crossentropy",
-               optimizer="adam", 
-               metrics=["binary_accuracy"])
+  model.compile(loss=loss,
+               optimizer=optimizer, 
+               metrics=metrics)
   return model
 
 

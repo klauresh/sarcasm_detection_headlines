@@ -23,7 +23,6 @@ def plot_loss(path, models):
     plt.plot(history.history['val_loss'])
     plt.title(f"model {model} loss")
     plt.ylabel('loss')
-    #plt.ylim(0.6, 1)
     plt.xlabel('epoch')
     plt.legend(['train', 'valid'], loc='upper left')
     plt.show()
