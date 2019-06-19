@@ -1,4 +1,4 @@
-from sklearn.externals import joblib
+import joblib
 from keras.models import Sequential, load_model
 from keras.layers import Embedding
 from keras.callbacks import EarlyStopping, ModelCheckpoint

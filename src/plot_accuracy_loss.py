@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import os
 from sklearn.externals import joblib
 
-def plot_accuracy(path, models):
+def plot_accuracy(path_to_results, models):
   '''Function to plot accuracy on train and validation sets.'''
   for model in models:
     history = joblib.load(os.path.join(path_to_results, model))
@@ -15,7 +15,7 @@ def plot_accuracy(path, models):
     plt.legend(['train', 'valid'], loc='upper left')
     plt.show()
 
-def plot_loss(path, models):
+def plot_loss(path_to_results, models):
   '''Function to plot loss on train and validation sets.'''
   for model in models:
     history = joblib.load(os.path.join(path_to_results, model))
